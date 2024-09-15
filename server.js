@@ -4,12 +4,11 @@ const path = require('path');
 const app = express();
 
 app.use(express.static('pages'));
+
 app.get('/', (req, res) => {
-    res.send('<h1>Sejam bem vindos!</h1>');
-});
-app.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname, 'home', 'index.html'));
 });
+
 app.get('/contato', (req, res) => {
     res.sendFile(path.join(__dirname, 'contato', 'index.html'));
 });
