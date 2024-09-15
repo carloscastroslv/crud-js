@@ -10,6 +10,9 @@ app.get('/', (req, res) => {
 app.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname, 'home', 'index.html'));
 });
+app.get('/contato', (req, res) => {
+    res.sendFile(path.join(__dirname, 'contato', 'index.html'));
+});
 
 const PORT = 3000;
 app.listen(PORT, () => {
