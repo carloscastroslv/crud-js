@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.static('pages'));
 app.get('/', (req, res) => {
-    res.send('<h1>Olá, mundo!<br>Isso é um teste</h1>');
+    res.send('<h1>Carlos Antonino</h1>');
 });
 app.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname, 'home', 'index.html'));
