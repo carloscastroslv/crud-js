@@ -3,8 +3,29 @@ const path = require('path');
 
 const app = express();
 
-app.use(express.static('pages'));
+const mysql = require('mysql');
 
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'carlos',
+    password: 'reactnode',
+    database: 'loja'
+});
+
+connection.connect(function(err) {
+    if (err) {
+        console.error('error connecting: ' + err.stack);
+        return;
+    }
+
+    console.log('connected as id ' + connection.threadId);
+});
+
+app.use(express.static('src/pages'));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'home', 'index.html'));
 });
