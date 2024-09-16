@@ -17,47 +17,64 @@ sequelize.authenticate().then(function(){
     console.log('Erro ao realizar a conexão' + err);
 })
 
-const Tarefa = sequelize.define('tarefa',{
-    Descricao: {
-        type: Sequelize.STRING,
-    },
-    status: {
-        type: Sequelize.BOOLEAN
-    }
-})
-
-Tarefa.create({
-    Descricao: "Continuar Projeto Laravel",
-    status: 1
-})
+// const Tarefa = sequelize.define('tarefa',{
+//     Descricao: {
+//         type: Sequelize.STRING,
+//     },
+//     status: {
+//         type: Sequelize.BOOLEAN
+//     }
+// })
 
 // Tarefa.sync({force: true});
 
-// const connection = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'carlos',
-//     password: 'reactnode',
-//     database: 'loja'
+// const Produtos = sequelize.define('produtos',{
+//     Descricao: {
+//         type: Sequelize.STRING,
+//     },
+//     Preco: {
+//         type: Sequelize.DECIMAL(10,2),
+//     },
+//     Quant: {
+//         type: Sequelize.INTEGER
+//     }
 // });
 
-// connection.connect(function(err) {
-//     if (err) {
-//         console.error('error connecting: ' + err.stack);
-//         return;
-//     }
+// Produtos.sync({force: true});
 
-//     console.log('connected as id ' + connection.threadId);
+// Tarefa.create({
+//     Descricao: "Continuar Projeto Laravel",
+//     status: 1
 // });
 
-// Insere produtos ao banco de dados
+// Produtos.create({
+//     Descricao: "Banana",
+//     Preco: 3.00,
+//     Quant: 10
+// });
 
-// connection.query("INSERT INTO produto(Descricao, Preco, Quant) VALUES ('Caneta', 3.00 , 1)"),function(err, result){
-//     if(!err) {
-//         console.log('Usuário cadastrado com sucesso!');
-//     } else {
-//         console.log('Erro ao cadastrar usuário');
-//     }
-// };
+const Users = sequelize.define('users',{
+    id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,  // Define autoincrement
+        primaryKey: true,     // Define como chave primária
+        allowNull: false      // Garante que o campo não seja nulo
+      },
+    Descricao: {
+        type: Sequelize.STRING,
+        allowNull: false      // Garante que o campo não seja nulo
+    },
+    Usuario: {
+        type: Sequelize.STRING,
+        allowNull: false      // Garante que o campo não seja nulo
+    },
+    Passw: {
+        type: Sequelize.STRING,
+        allowNull: false      // Garante que o campo não seja nulo
+    }
+});
+
+Users.sync({force: true});
 
 app.use(express.static('src/pages'));
 
