@@ -21,6 +21,16 @@ connection.connect(function(err) {
     console.log('connected as id ' + connection.threadId);
 });
 
+// Insere produtos ao banco de dados
+
+connection.query("INSERT INTO produto(Descricao, Preco, Quant) VALUES ('Caneta', 3.00 , 1)"),function(err, result){
+    if(!err) {
+        console.log('Usuário cadastrado com sucesso!');
+    } else {
+        console.log('Erro ao cadastrar usuário');
+    }
+};
+
 app.use(express.static('src/pages'));
 
 app.get('/', (req, res) => {
