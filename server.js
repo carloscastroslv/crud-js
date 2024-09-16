@@ -17,41 +17,41 @@ sequelize.authenticate().then(function(){
     console.log('Erro ao realizar a conexão' + err);
 })
 
-// const Tarefa = sequelize.define('tarefa',{
-//     Descricao: {
-//         type: Sequelize.STRING,
-//     },
-//     status: {
-//         type: Sequelize.BOOLEAN
-//     }
-// })
+const Tarefa = sequelize.define('tarefa',{
+    Descricao: {
+        type: Sequelize.STRING,
+    },
+    status: {
+        type: Sequelize.BOOLEAN
+    }
+})
 
-// Tarefa.sync({force: true});
+Tarefa.sync({force: true});
 
-// const Produtos = sequelize.define('produtos',{
-//     Descricao: {
-//         type: Sequelize.STRING,
-//     },
-//     Preco: {
-//         type: Sequelize.DECIMAL(10,2),
-//     },
-//     Quant: {
-//         type: Sequelize.INTEGER
-//     }
-// });
+const Produtos = sequelize.define('produtos',{
+    Descricao: {
+        type: Sequelize.STRING,
+    },
+    Preco: {
+        type: Sequelize.DECIMAL(10,2),
+    },
+    Quant: {
+        type: Sequelize.INTEGER
+    }
+});
 
-// Produtos.sync({force: true});
+Produtos.sync({force: true});
 
-// Tarefa.create({
-//     Descricao: "Continuar Projeto Laravel",
-//     status: 1
-// });
+Tarefa.create({
+    Descricao: "Continuar Projeto Laravel",
+    status: 1
+});
 
-// Produtos.create({
-//     Descricao: "Banana",
-//     Preco: 3.00,
-//     Quant: 10
-// });
+Produtos.create({
+    Descricao: "Banana",
+    Preco: 3.00,
+    Quant: 10
+});
 
 const Users = sequelize.define('users',{
     id: {
